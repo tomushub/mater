@@ -7,7 +7,7 @@ def read_data(airport):
 	ftp = FTP("tgftp.nws.noaa.gov")
 	ftp.login()
 	with open("./stations/" + airport + ".TXT","w" ) as f:
-		ftp.retrlines("RETR /data/observations/metar/stations/" + sys.argv[1] + ".TXT", f.write)
+		ftp.retrlines("RETR /data/observations/metar/stations/" + airport + ".TXT", f.write)
 	with open("./decoded/" + airport + ".TXT","w" ) as fd:
-		ftp.retrlines("RETR /data/observations/metar/decoded/" + sys.argv[1] + ".TXT", fd.write)
+		ftp.retrlines("RETR /data/observations/metar/decoded/" + airport + ".TXT", fd.write)
 	ftp.quit()
